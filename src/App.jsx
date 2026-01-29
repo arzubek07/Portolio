@@ -12,7 +12,7 @@ function App() {
     <>
       <Header />
       <main className="pt-20">
-        <div className="pt-7 pl-12">
+        <div className="pt-7 pl-28">
           <h1 className="text-7xl mb-5 font-semibold">Front-End</h1>
           <h1 className="text-7xl font-semibold text-blue-500 mb-5">Developer</h1>
           <p className="text-gray-600 max-w-96">

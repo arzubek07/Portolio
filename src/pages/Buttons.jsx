@@ -27,14 +27,6 @@ const Buttons = () => {
     hover:-translate-y-2">
               Tailwind
             </button>
-
-            <button className="px-6 py-3 rounded-xl bg-blue-500 text-white font-medium
-    shadow-lg shadow-blue-500/50
-    transition-all duration-300 ease-out
-    hover:bg-blue-600 hover:shadow-blue-600/80
-    hover:-translate-y-2">
-              HTML
-            </button>
           </div>
     </div>
 

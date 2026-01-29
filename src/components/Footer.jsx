@@ -51,32 +51,48 @@ export default function Footer() {
               <h3 className="text-xl font-semibold mb-4 text-white">
                 Соцсети
               </h3>
+
               <div className="flex gap-4">
                 {[
-                  { href: "https://github.com/", emoji: "🐙", bg: "bg-[#333]" },
-                  { href: "https://linkedin.com/", emoji: "💼", bg: "bg-[#0A66C2]" },
-                  { href: "https://t.me/", emoji: "✈️", bg: "bg-[#0088cc]" },
+                  {
+                    href: "https://github.com/",
+                    img: "https://img.icons8.com/ios11/512/github.png",
+                  },
+                  {
+                    href: "https://linkedin.com/",
+                    img: "https://www.vhv.rs/dpng/d/2-20625_linkedin-logo-hd-png-download.png",
+                  },
+                  {
+                    href: "https://t.me/",
+                    img: "https://free-png.ru/wp-content/uploads/2021/01/telegram_cvet-d23c11fa.png",
+                  },
                 ].map((item, idx) => (
                   <motion.a
                     key={idx}
                     href={item.href}
                     target="_blank"
                     rel="noreferrer"
-                    className={`
+                    className="
                       w-12 h-12
                       flex items-center justify-center
                       rounded-xl
-                      ${item.bg}
-                      text-white
+                      bg-white
                       shadow-lg
-                      border border-white/10
-                      backdrop-blur-xl
+                      border border-white/20
                       transition
-                    `}
-                    whileHover={{ scale: 1.2, y: -3, boxShadow: "0 0 20px rgba(79,209,197,0.6)" }}
+                    "
+                    whileHover={{
+                      scale: 1.15,
+                      y: -3,
+                      boxShadow: "0 0 20px rgba(79,209,197,0.6)",
+                    }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    {item.emoji}
+                    <img
+                      src={item.img}
+                      alt="social icon"
+                      className="w-9 h-7 object-contain"
+                    />
                   </motion.a>
                 ))}
               </div>

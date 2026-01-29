@@ -1,16 +1,34 @@
-import { useEffect, useState } from "react";
-import { FaLinkedinIn, FaGithub, FaInstagram } from "react-icons/fa";
+import { useEffect, useRef, useState } from "react";
 
 function About() {
   const [show, setShow] = useState(false);
+  const sectionRef = useRef(null);
 
   useEffect(() => {
-    setShow(true);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShow(true);
+        } else {
+          setShow(false);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
   }, []);
 
   return (
-    <section className="pt-32 px-6 mb-24">
-      {/* Заголовок */}
+    <section ref={sectionRef} className="pt-32 px-6 mb-24">
       <div className="flex justify-center">
         <h2
           className={`
@@ -23,7 +41,6 @@ function About() {
         </h2>
       </div>
 
-      {/* Описание */}
       <p
         className={`
           mt-8 mx-auto text-gray-600 max-w-2xl text-center leading-relaxed
