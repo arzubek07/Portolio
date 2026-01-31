@@ -1,5 +1,11 @@
+import { useState } from "react";
+
 const Header = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   const handleScroll = (id) => {
+    setMenuOpen(false); // закрываем меню на мобильных при клике
+
     if (id === "главная") {
       window.scrollTo({ top: 0, behavior: "smooth" });
       return;
@@ -21,8 +27,9 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-[#050d1a]/50 backdrop-blur-xl border-b border-white/10">
-      <div className="max-w-7xl mx-auto py-5 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto py-5 px-4 sm:px-6 flex items-center justify-between">
 
+        {/* Логотип */}
         <button
           onClick={() => handleScroll("главная")}
           className="
@@ -48,35 +55,51 @@ const Header = () => {
           </span>
         </button>
 
-        <nav className="flex gap-10 text-white/70 text-sm uppercase tracking-wider">
-          {["Главная", "Проекты", "Контакты"].map((item) => {
-            const id = item.toLowerCase();
+        {/* Кнопка меню для мобильных */}
+        <button
+          className="sm:hidden text-white p-2 focus:outline-none"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          {menuOpen ? "✕" : "☰"}
+        </button>
 
-            return (
-              <button
-                key={item}
-                onClick={() => handleScroll(id)}
-                className="
-                  relative
-                  transition-all duration-300 ease-out
-                  hover:-translate-y-1
-                  hover:text-white
-                  after:content-['']
-                  after:absolute
-                  after:left-0
-                  after:-bottom-1
-                  after:h-[1px]
-                  after:w-0
-                  after:bg-white
-                  after:transition-all
-                  after:duration-300
-                  hover:after:w-full
-                "
-              >
-                {item}
-              </button>
-            );
-          })}
+        {/* Навигация */}
+        <nav
+          className={`
+            absolute sm:static top-full left-0 w-full sm:w-auto bg-[#050d1a]/95 sm:bg-transparent backdrop-blur-xl sm:backdrop-blur-0 border-b border-white/10 sm:border-0
+            transition-all duration-300 ease-out
+            ${menuOpen ? "max-h-96 py-4" : "max-h-0 overflow-hidden"}
+          `}
+        >
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-10 px-4 sm:px-0 text-white/70 text-sm uppercase tracking-wider">
+            {["Главная", "Проекты", "Контакты"].map((item) => {
+              const id = item.toLowerCase();
+              return (
+                <button
+                  key={item}
+                  onClick={() => handleScroll(id)}
+                  className="
+                    relative
+                    transition-all duration-300 ease-out
+                    hover:-translate-y-1
+                    hover:text-white
+                    after:content-['']
+                    after:absolute
+                    after:left-0
+                    after:-bottom-1
+                    after:h-[1px]
+                    after:w-0
+                    after:bg-white
+                    after:transition-all
+                    after:duration-300
+                    hover:after:w-full
+                  "
+                >
+                  {item}
+                </button>
+              );
+            })}
+          </div>
         </nav>
 
       </div>

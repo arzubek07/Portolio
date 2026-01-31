@@ -6,9 +6,9 @@ export default function Footer() {
       <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-cyan-500/10 blur-3xl -z-10" />
 
       <div className="w-full border-t border-white/10 bg-white/5 backdrop-blur-xl">
-        <div className="max-w-7xl mx-auto px-0 py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-0 py-20">
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
 
             <motion.div
               initial={{ opacity: 0, y: 40 }}
@@ -19,7 +19,7 @@ export default function Footer() {
               <h3 className="text-xl font-semibold mb-4 text-white">
                 Обо мне
               </h3>
-              <p className="text-white/60 leading-relaxed">
+              <p className="text-white/60 leading-relaxed text-sm sm:text-base">
                 Я junior frontend-разработчик, который активно развивается в веб-разработке.
                 Люблю чистый UI, анимации и современные интерфейсы.
                 Стремлюсь писать поддерживаемый и масштабируемый код.
@@ -35,9 +35,9 @@ export default function Footer() {
               <h3 className="text-xl font-semibold mb-4 text-white">
                 Контакты
               </h3>
-              <ul className="space-y-3 text-white/70">
-                <li className="hover:text-cyan-400 transition">📧 arzubek.dev@gmail.com</li>
-                <li className="hover:text-cyan-400 transition">💬 Telegram: @arzubek_dev</li>
+              <ul className="space-y-3 text-white/70 text-sm sm:text-base">
+                <li className="hover:text-cyan-400 transition break-all">📧 arzubek.dev@gmail.com</li>
+                <li className="hover:text-cyan-400 transition break-all">💬 Telegram: @arzubek_dev</li>
                 <li className="hover:text-cyan-400 transition">🌍 Бишкек, Кыргызстан</li>
               </ul>
             </motion.div>
@@ -52,7 +52,7 @@ export default function Footer() {
                 Соцсети
               </h3>
 
-              <div className="flex gap-4">
+              <div className="flex flex-wrap gap-4">
                 {[
                   {
                     href: "https://github.com/",
@@ -73,7 +73,7 @@ export default function Footer() {
                     target="_blank"
                     rel="noreferrer"
                     className="
-                      w-12 h-12
+                      w-12 h-12 sm:w-12 sm:h-12
                       flex items-center justify-center
                       rounded-xl
                       bg-white
@@ -101,11 +101,11 @@ export default function Footer() {
 
           <div className="my-14 h-px bg-white/10" />
 
-          <div className="flex flex-col md:flex-row items-center justify-between text-white/50 text-sm">
-            <div>
+          <div className="flex flex-col sm:flex-row items-center justify-between text-white/50 text-xs sm:text-sm">
+            <div className="text-center sm:text-left">
               © {new Date().getFullYear()} Арзубек Токторов. Все права защищены.
             </div>
-            <div className="mt-4 md:mt-0">
+            <div className="mt-4 sm:mt-0 text-center sm:text-right">
               Сделано на React + Tailwind
             </div>
           </div>
