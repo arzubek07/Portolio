@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export default function Footer() {
   return (
-    <footer className="relative w-full mt-32">
+    <footer id="контакты" className="relative w-full mt-32">
       <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-cyan-500/10 blur-3xl -z-10" />
 
       <div className="w-full border-t border-white/10 bg-white/5 backdrop-blur-xl">
