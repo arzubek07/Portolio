@@ -36,9 +36,9 @@ export default function Footer() {
                 Контакты
               </h3>
               <ul className="space-y-3 text-white/70 text-sm sm:text-base">
-                <li className="hover:text-cyan-400 transition break-all">📧 arzubek.dev@gmail.com</li>
-                <li className="hover:text-cyan-400 transition break-all">💬 Telegram: @arzubek_dev</li>
-                <li className="hover:text-cyan-400 transition">🌍 Бишкек, Кыргызстан</li>
+                <li className="transition break-all">📧 arzubek.dev@gmail.com</li>
+                <li className="transition break-all">💬 Telegram: @arzubek_dev</li>
+                <li className="transition">🌍 Бишкек, Кыргызстан</li>
               </ul>
             </motion.div>
 

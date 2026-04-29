@@ -1,25 +1,40 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Cinemas from "../assets/cinemas.png";
+import KNUKI from "../assets/knuki.png";
+import JavaScript from "../assets/JavaScript.png"
+import CSS from "../assets/css.png" 
+import React from "../assets/react.png" 
+import Tailwind from "../assets/tailwind.png" 
+import Redux from "../assets/redux.png" 
+import HTML from "../assets/html.png" 
+import Bootstrap from "../assets/bootstrap.png" 
+import Figma from "../assets/fugma.png" 
 
 const projects = [
   {
     name: "Cinemas",
-    description: "Бронирование кино",
+    description: "Кинотеатр, бронирование сеансов",
     link: Cinemas,
     url: "https://sinemas.vercel.app/",
+  },
+  {
+    name: "КУМИУ-университет",
+    description: "Сайт университета",
+    link: KNUKI,
+    url: "https://www.knuki.kg/",
   },
 ];
 
 const skills = [
-  { name: "JavaScript", icon: "🟨" },
-  { name: "React", icon: "⚛️" },
-  { name: "Tailwind", icon: "🎨" },
-  { name: "Redux", icon: "🔄" },
-  { name: "CSS", icon: "💅" },
-  { name: "HTML", icon: "📄" },
-  { name: "Bootstrap", icon: "🅱️" },
-  { name: "Figma", icon: "🎨" },
+  { name: "JavaScript", icon: JavaScript },
+  { name: "React", icon: React },
+  { name: "Tailwind", icon: Tailwind },
+  { name: "Redux", icon: Redux },
+  { name: "CSS", icon: CSS },
+  { name: "HTML", icon: HTML },
+  { name: "Bootstrap", icon: Bootstrap },
+  { name: "Figma", icon: Figma },
 ];
 
 export default function PortfolioSection() {
@@ -126,37 +141,44 @@ export default function PortfolioSection() {
 
         {/* Skills */}
         {activeTab === "skills" && (
-          <motion.div
-            key={`skills-${show}`}
-            initial="hidden"
-            animate={show ? "show" : "hidden"}
-            variants={{
-              hidden: {},
-              show: { transition: { staggerChildren: 0.12 } },
-            }}
-            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 md:gap-10"
-          >
-            {skills.map((s, i) => (
-              <motion.div
-                key={i}
-                variants={{
-                  hidden: { opacity: 0, y: 40, scale: 0.9 },
-                  show: {
-                    opacity: 1,
-                    y: 0,
-                    scale: 1,
-                    transition: { type: "spring", stiffness: 160, damping: 18, delay: i * 0.08 },
-                  },
-                }}
-                whileHover={{ y: -10, scale: 1.05, boxShadow: "0 20px 50px rgba(79,209,197,0.25)" }}
-                className="rounded-2xl bg-gradient-to-br from-indigo-500/10 to-cyan-500/10 border border-white/10 backdrop-blur-xl p-4 sm:p-6 md:p-8 text-center"
-              >
-                <div className="text-4xl sm:text-5xl mb-2 sm:mb-4">{s.icon}</div>
-                <div className="text-sm sm:text-base md:text-lg font-medium">{s.name}</div>
-              </motion.div>
-            ))}
-          </motion.div>
-        )}
+  <motion.div
+    key={`skills-${show}`}
+    initial="hidden"
+    animate={show ? "show" : "hidden"}
+    variants={{
+      hidden: {},
+      show: { transition: { staggerChildren: 0.12 } },
+    }}
+    className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6 md:gap-10"
+  >
+    {skills.map((s, i) => (
+      <motion.div
+        key={i}
+        variants={{
+          hidden: { opacity: 0, y: 40, scale: 0.9 },
+          show: {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            transition: { type: "spring", stiffness: 160, damping: 18, delay: i * 0.08 },
+          },
+        }}
+        whileHover={{ y: -10, scale: 1.05, boxShadow: "0 20px 50px rgba(79,209,197,0.25)" }}
+        className="rounded-2xl bg-gradient-to-br from-indigo-500/10 to-cyan-500/10 border border-white/10 backdrop-blur-xl p-4 sm:p-6 md:p-8 text-center flex flex-col h-full"
+      >
+        <img
+          className="w-24 h-24 mx-auto mb-4 object-contain"
+          src={s.icon}
+          alt=""
+        />
+
+        <div className="text-sm sm:text-base md:text-lg font-medium mt-auto">
+          {s.name}
+        </div>
+      </motion.div>
+    ))}
+  </motion.div>
+)}
       </div>
     </section>
   );
